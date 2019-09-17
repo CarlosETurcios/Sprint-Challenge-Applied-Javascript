@@ -17,3 +17,51 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+// const articleArray = [
+//   'bootstrap',
+//   'javascript',
+//   'jquery',
+//   'node',
+//   'technology'
+// ];
+
+axios
+  .get('https://lambda-times-backend.herokuapp.com/articles')
+  .then(response => {
+    const articleT = response.data.articles;
+    for (topic in articleT) {
+      for (article in articleT[topic]) {
+        Article.appendChild(articleCreator(articleT[topic][article], topic));
+      }
+    }
+  });
+
+//.cartch(err => console.log(err));s
+
+function articleCreator(info) {
+  //create elements
+  const Article = document.createElement('div');
+  const headLine = document.createElement('div');
+  const authors = document.createElement('div');
+  const img = document.createElement('div');
+  const authorName = document.createElement('span');
+
+  //set content
+  headLine.textContent = info.data.headline;
+  authors.textContent = info.data.authorName;
+  img.setAttribute('src', info.data.authorName);
+  authorName.textContent = info.data.authorName;
+
+  //creat Structure
+  Article.appendChild('headLine');
+  Article.appendChild('authors');
+  Article.appendChild('img');
+  Article.appendChild('authorName');
+
+  //apply style
+  Article.classList.add('.cards-container');
+  Article.classList.add('.card');
+  Article.classList.add('author');
+  Article.classList.add('span');
+  return Article;
+}

@@ -7,10 +7,48 @@
 //
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
-axios
-  .get(' https://lambda-times-backend.herokuapp.com/topics')
-  .then(response => {
-    console.log(response.data);
-  });
-const tabs = document.querySelector('div', 'topics');
-function cCreator() {}
+//const topicsArray = ['bootstrap', 'javascript', 'jquery', 'node', 'technology'];
+//topicsArray.forEach(items => {
+// axios
+//   .get(' https://lambda-times-backend.herokuapp.com/topics')
+//   .then(response => {
+//     console.log(response.data);
+//     let tabs = document.querySelector('.topics');
+//   });
+
+// const tabs = document.querySelector('.tabs');
+
+// function createTabs() {
+//   const tabslist = document.createElement('div');
+
+//   tabslist.appendChild('div');
+
+//   tabslist.textContent = data.javascript;
+//   tabslist.textContent = data.bootstrap;
+//   tabslist.textContent = data.technology;
+//   tabslist.textContent = data.jquery;
+//   tabslist.textContent = data.node.js;
+
+//   tabslist.classList.add('.tabs');
+//   return tabslist;
+// }
+
+//     let t = document.querySelector('.topics');
+//     t.appendChild(tabs(response));
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
+// //});
+
+// function tabs(per) {
+//   const Tab = document.createElement('div');
+
+//   Tab.textContent = per.data.javascript;
+
+//   //Tab.appendChild(Tab);
+
+//   Tab.classList.add('.topics');
+
+//   return tabs;
+// };
