@@ -16,18 +16,21 @@ function Header() {
   const title = document.createElement('h1');
   const temp = document.createElement('span');
   //structure
-  header.appendChild(date);
   header.appendChild(title);
   header.appendChild(temp);
+  header.appendChild(date);
+
   // set content
-  date.textContent = 'SMARCH 28, 2019 ';
-  title.textContent = 'Lambda Times';
-  temp.textContent = '98°';
+
+  title.textContent = 'Lambda Times ';
+  temp.textContent = '98°    ';
+  date.textContent = '  SMARCH 28, 2019 ';
   //applystyles
-  header.classList.add('.header');
-  date.classList.add('.date');
+  header.classList.add('header');
+  temp.classList.add('temp');
+  date.classList.add('date');
   title.classList.add('h1');
-  temp.classList.add('.temp');
+
   return header;
 }
 

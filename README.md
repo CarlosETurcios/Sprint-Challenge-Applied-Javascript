@@ -30,14 +30,20 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+dom is a way for us to change and add things into our html and css
+
 2. What is an event?
+
+it is when the user does something such as clicking and or scrolling and it trigger some code
 
 3. What is an event listener?
 
+and event Listener wait for a specific action for it to trigger some code.
+
 4. Why would we convert a NodeList into an Array?
-
+so we can have access to it 
 5. What is a component?
-
+ its a way to build html and add styles using javascript
 ### Git Set up
 
 * [ ] Fork the project into your GitHub user account

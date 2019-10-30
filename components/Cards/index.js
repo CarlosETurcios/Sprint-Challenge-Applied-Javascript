@@ -16,52 +16,51 @@
 //   </div>
 // </div>
 //
-// Create a card for each of the articles and add the card to the DOM.
-// const articleArray = [
-//   'bootstrap',
-//   'javascript',
-//   'jquery',
-//   'node',
-//   'technology'
-// ];
+const articleArray = [''];
 
-axios
-  .get('https://lambda-times-backend.herokuapp.com/articles')
-  .then(response => {
-    const articleT = response.data.articles;
-    for (topic in articleT) {
-      for (article in articleT[topic]) {
-        Article.appendChild(articleCreator(articleT[topic][article], topic));
-      }
-    }
-  });
+articleArray.forEach(i => {
+  // console.log('https://lambda-times-backend.herokuapp.com/articles' + i);
 
-//.cartch(err => console.log(err));s
+  axios
+    .get('https://lambda-times-backend.herokuapp.com/articles' + i)
+    .then(response => {
+      console.log(response.data);
+
+      let cards = document.querySelector('.cards-container');
+
+      cards.appendChild(articleCreator(response));
+    })
+    .catch(e => {
+      console.log(e);
+    });
+});
 
 function articleCreator(info) {
   //create elements
   const Article = document.createElement('div');
   const headLine = document.createElement('div');
   const authors = document.createElement('div');
-  const img = document.createElement('div');
+  const newImg = document.createElement('img');
   const authorName = document.createElement('span');
 
   //set content
-  headLine.textContent = info.data.headline;
-  authors.textContent = info.data.authorName;
-  img.setAttribute('src', info.data.authorName);
-  authorName.textContent = info.data.authorName;
+  console.log(info.data.articles.bootstrap[0].headline);
+  headLine.textContent = info.data.articles.bootstrap[0].headline;
+  authors.textContent = info.data.articles.bootstrap[0].authorName;
+  newImg.setAttribute('src', info.data.articles.bootstrap[0].authorPhoto);
+  //authorName.textContent = info.data;
 
   //creat Structure
-  Article.appendChild('headLine');
-  Article.appendChild('authors');
-  Article.appendChild('img');
-  Article.appendChild('authorName');
+  Article.appendChild(headLine);
+  headLine.appendChild(authors);
+  Article.appendChild(newImg);
+  Article.appendChild(authorName);
 
   //apply style
   Article.classList.add('.cards-container');
   Article.classList.add('.card');
-  Article.classList.add('author');
-  Article.classList.add('span');
+  Article.classList.add('.author');
+  Article.classList.add('.span');
+
   return Article;
 }
